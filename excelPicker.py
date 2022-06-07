@@ -15,6 +15,8 @@ print(randomCell)
 InfoWB = load_workbook(filename= 'ExcelSheet.xlsx')
 InfoWS = InfoWB.active
 randomStock = InfoWS[randomCell].value
+InfoWB.save('ExcelSheet.xlsx')
+InfoWB.close()
 print(randomStock)
 
 dbWB = load_workbook(filename= 'StockPicks.xlsx')
@@ -22,4 +24,7 @@ db = dbWB.active
 # This next bit doesn't work either but I haven't researched or tried fixing it yet
 # dbWB['A2'] = randomStock
 # dbWB.__setattr__('A2', randomStock)
+# db['A2'] = randomStock
+# db.cell(row=2, column=1, value=randomStock)
 dbWB.save('StockPicks.xlsx')
+dbWB.close()
